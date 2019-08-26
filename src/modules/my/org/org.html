@@ -1,8 +1,11 @@
 <template>
     <div class="wrapper">
         <template for:each={people} for:item="person">
-            <my-card key={person.key} class="box" person-name={person.name}></my-card>
+            <my-card
+                key={person.key}
+                class="box"
+                person-name={person.name}
+            ></my-card>
         </template>
     </div>
-
 </template>
