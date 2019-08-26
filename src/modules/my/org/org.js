@@ -17,6 +17,7 @@ export default class Org extends LightningElement {
         { key: 13, name: 'Stan Wellback', title: 'Testing', parent: 10 },
         { key: 14, name: 'Marge Innovera', title: 'Hardware', parent: 10 },
         { key: 15, name: 'Evan Elpus', title: 'Quality', parent: 5 },
-        { key: 16, name: 'Lotta B. Essen', title: 'Sales Rep', parent: 3 }
+        { key: 16, name: 'Lotta B. Essen', title: 'Sales Rep', parent: 3 },
+        { key: 17, name: 'Kevin Hill', title: 'Product Manager', parent: 1 }
     ];
 }
