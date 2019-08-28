@@ -1,11 +1,12 @@
 <template>
     <div class="wrapper">
-        <template for:each={people} for:item="person">
-            <my-card
-                key={person.key}
-                class="box"
-                person-name={person.name}
-            ></my-card>
+        <template for:each={peeps} for:item="person">
+            <ul key={person.key}>
+                <li>{person.name}</li>
+                <template if:true={person.reports.length}>
+                    <my-reports people={person.reports}></my-reports>
+                </template>
+            </ul>
         </template>
     </div>
 </template>

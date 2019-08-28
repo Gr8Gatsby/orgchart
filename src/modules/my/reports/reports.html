@@ -1,0 +1,10 @@
+<template>
+    <template for:each={people} for:item="person">
+        <ul key={person.key}>
+            <li>{person.name}</li>
+            <template if:true={person.reports.length}>
+                <my-reports people={person.reports}></my-reports>
+            </template>
+        </ul>
+    </template>
+</template>
