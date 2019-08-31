@@ -1,8 +1,8 @@
 <template>
-    <template for:each={people} for:item="person">
+    <template for:each={reports} for:item="person">
         <ul key={person.key}>
             <li>reports: {person.name}</li>
-            <my-reports person={person}></my-reports>
+            <my-reports reports={person.reports}></my-reports>
         </ul>
     </template>
 </template>
