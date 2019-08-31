@@ -1,6 +1,6 @@
 import { LightningElement, track } from 'lwc';
 import Tree from 'my/tree';
-
+//TODO: make data external import
 export default class Org extends LightningElement {
     constructor() {
         super();

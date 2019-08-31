@@ -1,3 +1,7 @@
+//TODO: remove notion of key, assume data has it correctly
+//TODO: make tree parse method assuming simple JSON data
+// { key: 1, name: 'Stella Payne Diaz', title: 'CEO' },
+// { key: 2, name: 'Luke Warm', title: 'VP Marketing/Sales', parent: 1 },
 class Person {
     constructor(key, name, title, boss) {
         window.console.log('New Person Added');

@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <template for:each={people} for:item="person">
+        <template for:each={peeps} for:item="person">
             <ul key={person.key}>
                 <li>{person.name}</li>
                 <my-reports person={person}></my-reports>
