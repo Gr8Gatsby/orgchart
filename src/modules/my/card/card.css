@@ -1,8 +1,17 @@
+.center {
+    width: 50%;
+    margin: 0 auto;
+}
+
 .dot {
     background-color: crimson;
     border-radius: 100%;
     width: 10px;
     height: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    bottom: 0px;
 }
 
 .name {

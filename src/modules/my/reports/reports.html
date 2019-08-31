@@ -1,0 +1,8 @@
+<template>
+    <template for:each={reports} for:item="person">
+        <ul key={person.key}>
+            <li>reports: {person.name}</li>
+            <my-reports reports={person.reports}></my-reports>
+        </ul>
+    </template>
+</template>
