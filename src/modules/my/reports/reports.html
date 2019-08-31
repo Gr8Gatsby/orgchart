@@ -1,7 +1,9 @@
 <template>
+    <!-- Render direct reports -->
     <template for:each={reports} for:item="person">
         <ul key={person.key}>
-            <li>reports: {person.name}</li>
+            <li class="name">{person.name}</li>
+            <!-- recurse through direct reports -->
             <my-reports reports={person.reports}></my-reports>
         </ul>
     </template>

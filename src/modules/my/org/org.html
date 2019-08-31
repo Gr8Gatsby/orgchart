@@ -1,10 +1,11 @@
 <template>
-    <div class="wrapper">
-        <template for:each={peeps} for:item="person">
-            <ul key={person.key}>
-                <li>{person.name}</li>
-                <my-reports reports={person.reports}></my-reports>
-            </ul>
-        </template>
-    </div>
+    <!-- Loop through all the people in the org -->
+    <template for:each={people} for:item="person">
+        <!-- Render the root node of the org -->
+        <ul key={person.key}>
+            <li class="name">{person.name}</li>
+            <!-- Render direct reports for the root node -->
+            <my-reports reports={person.reports}></my-reports>
+        </ul>
+    </template>
 </template>

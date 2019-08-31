@@ -19,7 +19,7 @@ export default class Org extends LightningElement {
                 )
             );
             tree.generateOrg(1, tree.people);
-            this.peeps = tree._generatedOrg;
+            this.people = tree._generatedOrg;
         }
     }
 
