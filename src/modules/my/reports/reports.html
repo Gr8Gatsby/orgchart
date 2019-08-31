@@ -1,7 +1,7 @@
 <template>
     <template for:each={people} for:item="person">
         <ul key={person.key}>
-            <li> reports: {person.name}</li>
+            <li>reports: {person.name}</li>
             <my-reports person={person}></my-reports>
         </ul>
     </template>
