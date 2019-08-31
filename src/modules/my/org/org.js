@@ -19,8 +19,8 @@ export default class Org extends LightningElement {
             tree.addPerson('Norman Hill', 'Success', walterHill[0].key);
         }
 
-        tree.generateTree(0, tree.people);
-        this.peeps = tree.people;
+        tree.generateOrg(0, tree.people);
+        this.peeps = tree._generatedOrg;
     }
 
     @track peeps;

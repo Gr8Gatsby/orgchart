@@ -7,13 +7,6 @@ class Person {
         this.boss = boss;
     }
 
-    get isLeaf() {
-        if (this.reports.length > 0) {
-            return false;
-        }
-        return true;
-    }
-
     set reports(people) {
         this._reports = people;
     }
@@ -42,6 +35,7 @@ export default class Tree {
     _root = null;
     _key = 0;
     _people = [];
+    _peopleCopy = [];
     _generatedOrg = null;
 
     addPerson(name, title, boss) {
@@ -68,12 +62,44 @@ export default class Tree {
         return this._people.filter(person => person.boss === key);
     }
 
-    generateTree(key, people) {
-        let branch = this.getPersonByKey(key);
-
-        branch.reports = this.getReportsByKey(key);
-        branch.reports.forEach(person => this.generateTree(person.key, people));
+    resetTree() {
+        this._generatedOrg = [];
     }
+
+    generateReports(key, people) {
+        let branch = this.getPersonByKey(key);
+        branch.reports = this.getReportsByKey(key);
+        branch.reports.forEach(person =>
+            this.generateReports(person.key, people)
+        );
+    }
+
+    addDirectReportsToPerson(person) {
+        person.reports = this.people.filter(p => p.boss === person.key);
+        if (person.reports.length) {
+            person.reports.forEach(report =>
+                this.addDirectReportsToPerson(report)
+            );
+        }
+    }
+
+    generateOrg(key, people) {
+        this._generatedOrg = [];
+
+        let anchor = people.find(person => person.key === key);
+        this._generatedOrg.push(anchor);
+        let filteredPeople = this.people.filter(p => p.key === anchor.key);
+        this.generateReports(anchor.key, filteredPeople);
+
+        if (anchor.reports.length) {
+            anchor.reports.forEach(person =>
+                this.addDirectReportsToPerson(person)
+            );
+        }
+    }
+
+    // anchor = 0
+    // go through all direct reports add other directs
 
     get root() {
         return this._root;
@@ -83,3 +109,5 @@ export default class Tree {
         return this._people;
     }
 }
+
+// Array filter a person.
