@@ -1,10 +1,8 @@
-//TODO: remove notion of key, assume data has it correctly
 //TODO: make tree parse method assuming simple JSON data
 // { key: 1, name: 'Stella Payne Diaz', title: 'CEO' },
 // { key: 2, name: 'Luke Warm', title: 'VP Marketing/Sales', parent: 1 },
 class Person {
     constructor(key, name, title, boss) {
-        window.console.log('New Person Added');
         this.key = key;
         this.name = name;
         this.title = title;
@@ -27,47 +25,21 @@ class Person {
 }
 
 export default class Tree {
-    constructor() {
-        window.console.log('New Tree Created');
-        this._root = this.addPerson(
-            'Kevin Hill',
-            'Chief Lightning Officer',
-            -1
-        );
-    }
-
-    _root = null;
     _key = 0;
     _people = [];
-    _peopleCopy = [];
     _generatedOrg = null;
 
-    addPerson(name, title, boss) {
-        const person = new Person(this._key, name, title, boss);
+    addPerson(key, name, title, boss) {
+        const person = new Person(key, name, title, boss);
         this._people.push(person);
-
-        this._key++;
-        return person;
     }
 
     getPersonByKey(key) {
         return this._people.find(person => person.key === key);
     }
 
-    getPersonByName(searchName) {
-        window.console.log(searchName);
-        window.console.log(this._people.length);
-        let person = this._people.filter(p => p.name === searchName);
-        window.console.log('getPersonByName: ' + JSON.stringify(person));
-        return person;
-    }
-
     getReportsByKey(key) {
         return this._people.filter(person => person.boss === key);
-    }
-
-    resetTree() {
-        this._generatedOrg = [];
     }
 
     generateReports(key, people) {
@@ -100,13 +72,6 @@ export default class Tree {
                 this.addDirectReportsToPerson(person)
             );
         }
-    }
-
-    // anchor = 0
-    // go through all direct reports add other directs
-
-    get root() {
-        return this._root;
     }
 
     get people() {
