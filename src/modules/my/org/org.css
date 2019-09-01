@@ -1,3 +1,17 @@
 .name {
     font-size: x-small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: center;
+    margin: 20px 5px;
 }
