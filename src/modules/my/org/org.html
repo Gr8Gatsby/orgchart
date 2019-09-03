@@ -1,11 +1,18 @@
 <template>
-    <!-- Loop through all the people in the org -->
-    <template for:each={people} for:item="person">
-        <!-- Render the root node of the org -->
-        <ul key={person.key}>
-            <li class="name">{person.name}</li>
-            <!-- Render direct reports for the root node -->
-            <my-reports reports={person.reports}></my-reports>
-        </ul>
-    </template>
+    <div class="org">
+        <!-- Loop through all the people in the org -->
+        <template for:each={people} for:item="person">
+            <!-- Render the root node of the org -->
+            <ul key={person.key}>
+                <my-card>
+                    <li class="name">
+                        <div slot="name" class="name">{person.name}</div>
+                        <div slot="title" class="title">{person.title}</div>
+                    </li>
+                </my-card>
+                <!-- Render direct reports for the root node -->
+                <my-reports reports={person.reports}></my-reports>
+            </ul>
+        </template>
+    </div>
 </template>
